@@ -10,7 +10,7 @@ public class BoidSimulation extends PApplet {
     private static final int NUM_OF_VEHICLES = 100;
     private static final int NUM_OF_FLOCKS = 6;
     private static final boolean SAVE_FRAMES = false;
-    private static final boolean WITH_QUAD = true;
+    private static final boolean WITH_QUAD = false;
     private static QuadTree<Vehicle> quadTree;
     ArrayList<Vehicle> flocks;
     ArrayList<Obstacle> obstacles;
@@ -19,8 +19,8 @@ public class BoidSimulation extends PApplet {
             new PVector(240, 41, 99),
             new PVector(43, 90, 237),
             new PVector(200, 200, 200),
-            new PVector(174,8,250),
-            new PVector(19,92,1)
+            new PVector(174, 8, 250),
+            new PVector(19, 92, 1)
     };
 
     public static void main(String[] args) {
@@ -40,10 +40,10 @@ public class BoidSimulation extends PApplet {
         flocks = new ArrayList<>();
         for (int i = 0; i < NUM_OF_FLOCKS; i++) {
             PVector coefficientsVector = new PVector(
-                    lerp(0.8f,1.5f,random(0,1)),
-                    lerp(0.8f,1.5f,random(0,1)),
-                    lerp(1.1f,1.6f,random(0,1)));
-            println("flock number " + i +" with:" + coefficientsVector);
+                    lerp(0.8f, 1.5f, random(0, 1)),
+                    lerp(0.8f, 1.5f, random(0, 1)),
+                    lerp(1.1f, 1.6f, random(0, 1)));
+            println("flock number " + i + " with:" + coefficientsVector);
             for (int j = 0; j < NUM_OF_VEHICLES; j++) {
                 flocks.add(new Vehicle(
                         random(0,
@@ -64,9 +64,9 @@ public class BoidSimulation extends PApplet {
 //        background(255);
         fill(backgroundColor.x, backgroundColor.y, backgroundColor.z, 30f);
         rect(0, 0, width, height);
-        if(WITH_QUAD){
-            quadTree = new QuadTree<>(new Square<>(width*0.5f,height*0.5f,
-                    width*0.5f+Vehicle.RENDER_BUFFER));
+        if (WITH_QUAD) {
+            quadTree = new QuadTree<>(new Square<>(width * 0.5f, height * 0.5f,
+                    width * 0.5f + Vehicle.RENDER_BUFFER));
             for (Vehicle v :
                     flocks) {
                 quadTree.insert(new Point<>(v.getX(), v.getY(), v));
@@ -81,14 +81,14 @@ public class BoidSimulation extends PApplet {
             v.edges();
             v.display();
         }
-        if(mousePressed && mouseButton == LEFT){
-            obstacles.add(new Obstacle(mouseX,mouseY));
+        if (mousePressed && mouseButton == LEFT) {
+            obstacles.add(new Obstacle(mouseX, mouseY));
         }
 
-        if(mousePressed && mouseButton == RIGHT){
+        if (mousePressed && mouseButton == RIGHT) {
             for (int i = 0; i < obstacles.size(); i++) {
                 Obstacle o = obstacles.get(i);
-                if(dist(mouseX,mouseY,o.position.x,o.position.y)<o.obstacleSize){
+                if (dist(mouseX, mouseY, o.position.x, o.position.y) < o.obstacleSize) {
                     obstacles.remove(o);
                 }
             }
@@ -99,15 +99,15 @@ public class BoidSimulation extends PApplet {
             o.display();
         }
 
-        if(frameCount<45*90 && SAVE_FRAMES){
+        if (frameCount < 45 * 90 && SAVE_FRAMES) {
             saveFrame("output/boids1_####.tif");
-            println("curr frame rate:" + frameRate+ ", curr frame: " + frameCount);
-            println("seconds of video: " + (frameCount/60));
+            println("curr frame rate:" + frameRate + ", curr frame: " + frameCount);
+            println("seconds of video: " + (frameCount / 60));
 
         }
     }
 
-    class Vehicle implements Locatable{
+    class Vehicle implements Locatable {
         // the rendering buffer from screen edges
         private static final int RENDER_BUFFER = 10;
         private static final float VISION_RADIUS = 150;
@@ -141,11 +141,12 @@ public class BoidSimulation extends PApplet {
 
 
         /**
-         constructor. creates a vehicle in the given x,y coordinates
-         * @param x           - the vehicle's x coordinate
-         * @param y           - the vehicle's y coordinate
-         * @param color       - rgb value of vehicle
-         * @param flockNumber - the number of the flock of this vehicle
+         * constructor. creates a vehicle in the given x,y coordinates
+         *
+         * @param x                 - the vehicle's x coordinate
+         * @param y                 - the vehicle's y coordinate
+         * @param color             - rgb value of vehicle
+         * @param flockNumber       - the number of the flock of this vehicle
          * @param coefficientVector - a vector that holds the alignment,
          *                          cohesion, and separation coefficients in
          *                          this order
@@ -161,7 +162,7 @@ public class BoidSimulation extends PApplet {
             acceleration = new PVector(0, 0);
             velocity = new PVector(random(-10, 10), random(-10, 10));
             position = new PVector(x, y);
-            r = 6 + flockNumber%2;
+            r = 6 + flockNumber % 2;
             maxSpeed = 4;
             maxForce = 0.2f;
             visionRadius = VISION_RADIUS;
@@ -202,8 +203,8 @@ public class BoidSimulation extends PApplet {
          */
         ArrayList<Vehicle> getNeighboursQuad() {
             ArrayList<Point<Vehicle>> possibleNeighbours =
-                    quadTree.queryRange(new Square<>(this.getX(),this.getY(),
-                            Vehicle.RENDER_BUFFER+this.visionRadius));
+                    quadTree.queryRange(new Square<>(this.getX(), this.getY(),
+                            Vehicle.RENDER_BUFFER + this.visionRadius));
             ArrayList<Vehicle> neighbours = new ArrayList<>();
             for (Point<Vehicle> other :
                     possibleNeighbours) {
@@ -312,39 +313,39 @@ public class BoidSimulation extends PApplet {
             return steering;
         }
 
-        PVector obstacleAvoidance(ArrayList<Obstacle> obstacles){
+        PVector obstacleAvoidance(ArrayList<Obstacle> obstacles) {
             PVector steering = new PVector();
 
             for (Obstacle o :
                     obstacles) {
                 float dist = PVector.dist(this.position, o.position);
-                if (dist <= (visionRadius + o.obstacleSize)*1.25f) {
-                        PVector steerAwayVector = PVector.sub(this.position,o.position);
-                        steerAwayVector.setMag(maxSpeed);
-                        steerAwayVector.div((dist+o.obstacleSize)*1.2f);
-                        steering.add(steerAwayVector);
-                    }
+                if (dist <= (visionRadius + o.obstacleSize) * 1.25f) {
+                    PVector steerAwayVector = PVector.sub(this.position, o.position);
+                    steerAwayVector.setMag(maxSpeed);
+                    steerAwayVector.div((dist + o.obstacleSize) * 1.2f);
+                    steering.add(steerAwayVector);
                 }
+            }
             return steering;
         }
 
-        void avoidEdges(){
+        void avoidEdges() {
             PVector desired = velocity.copy();
-            if(position.x < minDistanceFromEdge){
+            if (position.x < minDistanceFromEdge) {
                 desired.x = maxSpeed;
             }
-            if(position.x > width - minDistanceFromEdge){
+            if (position.x > width - minDistanceFromEdge) {
                 desired.x = -maxSpeed;
             }
-            if(position.y < minDistanceFromEdge){
+            if (position.y < minDistanceFromEdge) {
                 desired.y = maxSpeed;
             }
-            if(position.y > height - minDistanceFromEdge){
+            if (position.y > height - minDistanceFromEdge) {
                 desired.y = -maxSpeed;
             }
             PVector steering = PVector.sub(desired, velocity);
             steering.setMag(maxSpeed);
-            steering.limit(2*maxForce);
+            steering.limit(2 * maxForce);
             applyForce(steering);
         }
 
@@ -356,10 +357,9 @@ public class BoidSimulation extends PApplet {
         void flock(ArrayList<Vehicle> boids) {
             // loop through the boids and find neighbours
             ArrayList<Vehicle> neighbours;
-            if(WITH_QUAD) {
+            if (WITH_QUAD) {
                 neighbours = this.getNeighboursQuad();
-            }
-            else{
+            } else {
                 neighbours = this.getNeighbours(flocks);
             }
 //
@@ -420,19 +420,20 @@ public class BoidSimulation extends PApplet {
         }
     }
 
-    class Obstacle{
-        private final PVector obstacleColor = new PVector(23,128,237);
+    class Obstacle {
+        private final PVector obstacleColor = new PVector(23, 128, 237);
         private final int obstacleSize = 11;
         PVector position;
-        Obstacle(int x, int y){
-            this.position = new PVector(x,y);
+
+        Obstacle(int x, int y) {
+            this.position = new PVector(x, y);
         }
 
-        void display(){
+        void display() {
             noStroke();
-            fill(obstacleColor.x,obstacleColor.y,obstacleColor.z);
+            fill(obstacleColor.x, obstacleColor.y, obstacleColor.z);
             ellipseMode(RADIUS);
-            ellipse(position.x,position.y,obstacleSize,obstacleSize);
+            ellipse(position.x, position.y, obstacleSize, obstacleSize);
         }
     }
 }
