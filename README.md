@@ -42,19 +42,18 @@ For a full demo video check this [link](https://youtu.be/npPt1FX66dg).
 
 ## Flocking behaviour explained
 
-Flocking behavior is a phenomenon observed in nature where groups of animals  
-move in a coordinated way without a centralized control. Examples include  
-flocks of birds, schools of fish, and swarms of locusts. Flocking behavior has  
-been studied in various scientific fields, including biology, physics, and  
-computer science, as it represents a complex system that emerges from the  
-interactions between individual agents. By understanding the underlying  
-principles of flocking behavior, we can apply this knowledge to various fields,  
-such as robotics, animation, and game development.
+Flocking behavior is a phenomenon observed in nature where groups of 
+animals move in a coordinated way without a centralized control. Examples include 
+flocks of birds, schools of fish, and swarms of locusts. Flocking behavior 
+has been studied in various scientific fields, including biology, physics, 
+and computer science, as it represents a complex system that emerges from 
+the interactions between individual agents. By understanding the underlying 
+principles of flocking behavior, we can apply this knowledge to various fields, such as robotics, animation, and game development.
 
 The following implementation is based on the flocking behavior and boid simulation characteristics presented by [Craig Reynolds](http://www.red3d.com/cwr/index.html).
 
-The three core principles of flocking behavior are alignment, separation, and  
-cohesion, which were implemented in this project.
+The three core principles of flocking behavior are alignment, separation, 
+and cohesion, which were implemented in this project.
 
 <figure align="center">
   <img src="http://www.red3d.com/cwr/boids/images/alignment.gif" alt="Trulli" align="center">
@@ -64,8 +63,6 @@ cohesion, which were implemented in this project.
 </figure>  
 
 * **Alignment** - *steer towards the average heading of local flockmates* - refers to the tendency of an individual agent to align its velocity with the average velocity of its neighboring agents. This principle allows for a coordinated movement of the flock towards a common direction, creating a sense of unity and common purpose.
-
-
 
 <figure align="center">
   <img src="http://www.red3d.com/cwr/boids/images/separation.gif" alt="Trulli" align="center">
