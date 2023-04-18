@@ -33,11 +33,15 @@ simulations.
 
 <div align="center">  
 
-<img src="https://github.com/avihuxp/WaveFunctionCollapse/blob/master/README/wfc.gif?raw=true" alt="random_forest_error" width="800"/>  
 </div>  
+<video controls autoplay>
+  <source src="https://user-images.githubusercontent.com/74983143/232906737-f554ee09-e947-4ae4-a486-cb249b726008.mp4" type="video/mp4">
+</video>
+
+
+
 
 For a full demo video check this [link](https://youtu.be/npPt1FX66dg).
-
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>  
 
 ## Flocking behaviour explained
