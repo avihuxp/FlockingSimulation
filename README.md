@@ -81,7 +81,7 @@ By implementing these principles, this project simulates the emergent behavior o
 
 The program requires the following to run:
 
-- JAVA 8
+- Java 8
 - Processing Core
 
 I highly recommend downloading and using the processing native IDE [here](https://processing.org/download)
