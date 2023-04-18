@@ -53,30 +53,25 @@ The following implementation is based on the flocking behavior and boid simulati
 The three core principles of flocking behavior are alignment, separation, 
 and cohesion, which were implemented in this project.
 
-<figure align="center">
-  <img src="http://www.red3d.com/cwr/boids/images/alignment.gif" alt="Trulli" align="center">
 <p align="center">
- Alignment
- </p>
-</figure>  
+  <img src="http://www.red3d.com/cwr/boids/images/alignment.gif" alt="Alignment image"/>
+  <p align="center">Alignment</p>
+</p>
 
 * **Alignment** - *steer towards the average heading of local flockmates* - refers to the tendency of an individual agent to align its velocity with the average velocity of its neighboring agents. This principle allows for a coordinated movement of the flock towards a common direction, creating a sense of unity and common purpose.
 
-<figure align="center">
-  <img src="http://www.red3d.com/cwr/boids/images/separation.gif" alt="Trulli" align="center">
-<p  align="center">
- Separation
- </p>
-</figure>
+<p align="center">
+  <img src="http://www.red3d.com/cwr/boids/images/separation.gif" alt="separation image"/>
+  <p align="center">Separation</p>
+</p>
 
 * **Separation** - *"steer to avoid crowding local flockmates"* - refers to the tendency of an individual agent to maintain a  minimum distance from its neighboring agents. This principle helps to prevent collisions between agents and maintain a sense of personal space. By avoiding collisions, agents can move freely within the flock, which contributes to the overall fluidity of the flocking behavior.
 
-<figure align="center">
-  <img src="http://www.red3d.com/cwr/boids/images/cohesion.gif" alt="Trulli" align="center">
-<p  align="center">
- Cohesion
- </p>
-</figure>
+
+<p align="center">
+  <img src="http://www.red3d.com/cwr/boids/images/cohesion.gif" alt="cohesion image"/>
+  <p align="center">Cohesion</p>
+</p>
 
 * **Cohesion** - *steer to move toward the average position of local flockmates* - refers to the tendency of an individual agent to move towards the center of mass of its neighboring agents. This principle creates a sense of togetherness and group cohesion within the flock. By moving towards the center of mass, agents can maintain a consistent distance from their neighbors and avoid becoming isolated from the flock.
 
