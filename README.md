@@ -30,8 +30,8 @@ simulations.
 ## Demo
 
 <div align="center">  
-<video controls autoplay>
-  <source src="https://user-images.githubusercontent.com/74983143/232906737-f554ee09-e947-4ae4-a486-cb249b726008.mp4" type="video/mp4">
+</div>  
+<video src="https://user-images.githubusercontent.com/74983143/232906737-f554ee09-e947-4ae4-a486-cb249b726008.mp4" controls="controls" autoplay muted style="max-width: 730px;">
 </video>
 </div>  
 
