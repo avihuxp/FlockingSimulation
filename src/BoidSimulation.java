@@ -58,6 +58,20 @@ public class BoidSimulation extends PApplet {
         obstacles = new ArrayList<>();
     }
 
+    /**
+     * thresholdAngle = arctan(height/width) - preprocess
+     *
+     * Give two point A,B, return min dist of them:
+     * Angle = arctan(|A.y-B.y|/|A.x-B.x|)
+     * if Angle < thresholdAngle:
+     *      lineLength = width/sin(Angle)
+     * else:
+     *      lineLength = height/cos(Angle)
+     * dist = euclideanDist(A,B)
+     * return min(dist, LineLength - dist)
+     *
+     */
+
     @Override
     public void draw() {
 
