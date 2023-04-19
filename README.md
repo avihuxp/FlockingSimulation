@@ -29,11 +29,9 @@ simulations.
 
 ## Demo
 
-<div align="center">  
-</div>  
-<video src="https://user-images.githubusercontent.com/74983143/232906737-f554ee09-e947-4ae4-a486-cb249b726008.mp4" controls="controls" autoplay muted style="max-width: 730px;">
-</video>
-</div>  
+<div align="center">
+<img src="README/Flocking_Sim_Demo.gif?raw=true" alt="random_forest_error" width="800"/>
+</div>
 
 For a full demo video check this [link](https://youtu.be/npPt1FX66dg).
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>  
