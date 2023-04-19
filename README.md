@@ -5,7 +5,7 @@
     A simulation of flocking behaviours in nature</p>  
 <div align = "center">  
 
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/navendu-pottekkat/awesome-readme?include_prereleases)  ![GitHub last commit](https://img.shields.io/github/last-commit/avihuxp/FlockingSimulation?color=orange)  ![GitHub issues](https://img.shields.io/github/issues/avihuxp/FlockingSimulation?color=yellow)  ![GitHub pull requests](https://img.shields.io/github/issues-pr/avihuxp/FlockingSimulation?color=yellow)  ![GitHub repo size](https://img.shields.io/github/repo-size/avihuxp/FlockingSimulation)  ![GitHub](https://img.shields.io/github/license/avihuxp/FlockingSimulation)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/navendu-pottekkat/awesome-readme?include_prereleases)  ![GitHub last commit](https://img.shields.io/github/last-commit/avihuxp/FlockingSimulation?color=orange)  ![GitHub issues](https://img.shields.io/github/issues/avihuxp/FlockingSimulation?color=yellow)  ![GitHub pull requests](https://img.shields.io/github/issues-pr/avihuxp/FlockingSimulation?color=yellow)  ![GitHub repo size](https://img.shields.io/github/repo-size/avihuxp/FlockingSimulation)  
 
 <a href="https://github.com/avihuxp/FlockingSimulation/issues">Report Bug</a> <a href="https://github.com/avihuxp/FlockingSimulation/issues">Request Feature</a>
 </div>  
