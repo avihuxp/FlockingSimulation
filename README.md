@@ -14,7 +14,7 @@
 
 This project is a work-in-progress implementation of a flocking simulation of agents using Java and Processing. The goal of this project is to explore and experiment with different flocking behaviors and to create visually interesting and dynamic simulations.
 
-The project currently includes collision detection with both Euclidean distance measurements and with a quadtree data structure that I implemented. As a work-in-progress project, there may be bugs and incomplete features, but I welcome feedback and contributions from others interested in exploring flocking  
+The project currently includes collision detection with both Euclidean distance measurements and with a quadtree data structure that I implemented, As well as the additon of obstacles for the vehicles to avoid. As a work-in-progress project, there may be bugs and incomplete features, but I welcome feedback and contributions from others interested in exploring flocking  
 simulations.
 
 ## Table of context
@@ -92,6 +92,7 @@ Clone the repo:
  ```  
 
 ## Usage
+To add an obstacle to the screen for the vehicles to avoid, simply left click where you would like to place it, and to remove an obstacle, right click on it.
 
 There are many parameters one can toy with, the main ones are:
 
