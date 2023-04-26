@@ -104,8 +104,11 @@ There are many parameters one can toy with, the main ones are:
 
 ## Features
 
+* [X] Add obstacles to the simulation
 * [ ] Implement spatial hashing to improve runtime performance
 * [ ] Add UI for parameter  tweaking
+* [ ] Add predators to the simulation
+* [ ] Add visual aids for better understanding of the flocking behavior
 
 
 See the [open issues](https://github.com/avihuxp/FlockingSimulation/issues)  
